@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>あなたのＨＰタイトル</title>
-<meta name="keywords" content="ページのキーワードA,B,C">
-<meta name="description" content="ページの説明">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>認証ウィジェット</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-<div id="outer">
-<header>
-<div class="header-inner">
-<h1>あなたのＨＰタイトル</h1>
-<p>あなたのＨＰの説明文</p>
-</div>
-</header>
-<div id="content">
-<div class="inner">
-<h2>記事ページ見出し・大</h2>
-<p>文章あれこれ</p>
-<h3>記事ページ見出し・中</h3>
-<p>文章あれこれ</p>
-<h4>記事ページ見出し・小</h4>
-<p>文章あれこれ</p>
-</div>
-<aside>
-<div class="left-title">サイドバータイトル</div>
-<div class="link">
-<ul>
-<li>記事ページへのリンク</li>
-<li>記事ページへのリンク</li>
-</ul>
-</div>
-</aside>
-</div>
-<footer>© 2010 あなたのホームページ</footer>
-</div>
+  <h2>パスコードを入力してください</h2>
+  <input type="text" id="code" placeholder="パスコード">
+  <button onclick="checkCode()">送信</button>
+
+  <script>
+    const correctCode = "secret123"; // 事前に設定した値
+    const redirectURL = "https://example.com/success"; // 遷移先
+
+    function checkCode() {
+      const userCode = document.getElementById("code").value;
+      if (userCode === correctCode) {
+        window.location.href = redirectURL;
+      } else {
+        alert("コードが違います");
+      }
+    }
+  </script>
 </body>
 </html>
